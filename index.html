@@ -6,11 +6,11 @@
   <meta name="theme-color" content="#000175">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="КПДІ">
-  <meta name="description" content="Мобільний додаток Кам'янець-Подільського державного інституту">
-  <title>КПДІ — Кам'янець-Подільський державний інститут</title>
+  <meta name="apple-mobile-web-app-title" content="КПДІ Campus">
+  <meta name="description" content="КПДІ Campus — мобільний додаток Кам'янець-Подільського державного інституту">
+  <title>КПДІ Campus</title>
   <link rel="manifest" href="./manifest.json">
-  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -91,15 +91,15 @@
       font-weight: 500;
       letter-spacing: 0.01em;
     }
-    .nav-btn.active { color: #4EA8DE; }
-    .nav-btn.active svg { stroke: #4EA8DE; }
+    .nav-btn.active { color: #fff; }
+    .nav-btn.active svg { stroke: #fff; }
     .nav-indicator {
       position: absolute;
       top: -6px;
       left: 50%;
       transform: translateX(-50%);
-      width: 26px;
-      height: 2px;
+      width: 32px;
+      height: 3px;
       background: #000175;
       border-radius: 0 0 3px 3px;
     }
@@ -116,10 +116,10 @@
     /* === SECTION HEADER === */
     .section-header {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: #5C6F82;
+      color: #3A3AAF;
       margin-bottom: 10px;
       margin-top: 6px;
     }
@@ -191,12 +191,12 @@
       width: 34px;
       height: 34px;
       border-radius: 9px;
-      background: rgba(0,1,117,0.2);
+      background: #000175;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .quick-card-icon svg { stroke: #4EA8DE; }
+    .quick-card-icon svg { stroke: #fff; }
     .quick-card-label {
       font-size: 13px;
       font-weight: 600;
@@ -267,8 +267,8 @@
     .day-name { font-size: 13px; color: #8899AA; margin-top: 3px; }
 
     .active-banner {
-      background: rgba(0,1,117,0.13);
-      border: 1px solid rgba(0,1,117,0.28);
+      background: rgba(0,1,117,0.22);
+      border: 1px solid rgba(0,1,117,0.5);
       border-radius: 14px;
       padding: 14px 16px;
       margin-bottom: 12px;
@@ -1227,10 +1227,10 @@
       return ce('div', { className: 'install-banner' },
         ce('div', { className: 'install-content' },
           ce('div', { className: 'install-icon' },
-            ce('img', { src: './icons/icon-192.png', alt: 'КПДІ', width: 40, height: 40 })
+            ce('img', { src: './icons/apple-touch-icon.png', alt: 'КПДІ Campus', width: 40, height: 40 })
           ),
           ce('div', { className: 'install-text' },
-            ce('div', { className: 'install-title' }, 'Встановити КПДІ'),
+            ce('div', { className: 'install-title' }, 'Встановити КПДІ Campus'),
             ce('div', { className: 'install-sub' },
               isIOS
                 ? 'Натисніть Share → «На екран Домівки»'
