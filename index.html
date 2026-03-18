@@ -711,6 +711,15 @@
 <body>
   <div id="root"></div>
 
+  <!-- Capture beforeinstallprompt BEFORE React loads — the event fires early -->
+  <script>
+    window._installPrompt = null;
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      window._installPrompt = e;
+    });
+  </script>
+
   <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 
@@ -1259,8 +1268,12 @@
       useEffect(() => {
         if (isStandalone || sessionStorage.getItem('installDismissed')) return;
 
+        // Pick up event captured before React mounted
+        if (window._installPrompt) setInstallPrompt(window._installPrompt);
+
         const handler = e => {
           e.preventDefault();
+          window._installPrompt = e;
           setInstallPrompt(e);
         };
         window.addEventListener('beforeinstallprompt', handler);
