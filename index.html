@@ -17,7 +17,7 @@
   <style>
     /* === RESET & BASE === */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; background: #0C1119; }
+    html, body { height: 100%; overflow: hidden; background: #0C1119; overscroll-behavior: none; }
     body {
       font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
       color: #E8EDF2;
@@ -33,10 +33,14 @@
     input:focus, textarea:focus { outline: none; }
 
     /* === APP LAYOUT === */
+    /* position:fixed with inset-0 is the only reliable way to fill
+       the exact visual viewport on iOS Safari (avoids height:100% chain breakage) */
     #root {
-      height: 100%;
+      position: fixed;
+      inset: 0;
       display: flex;
       flex-direction: column;
+      background: #0C1119;
     }
     .app {
       display: flex;
@@ -47,12 +51,11 @@
       width: 100%;
       margin: 0 auto;
       background: #0C1119;
-      /* Push content below Dynamic Island / status bar */
       padding-top: env(safe-area-inset-top);
     }
     .app-content {
       flex: 1;
-      min-height: 0; /* lets flex child scroll on iOS */
+      min-height: 0;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
